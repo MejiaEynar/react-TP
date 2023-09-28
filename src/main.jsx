@@ -4,7 +4,6 @@ import App from './App.jsx'
 import Inicio from './Inicio.jsx'
 import Publicaciones from './Publicaciones'
 import New from './New.jsx'
-import './index.css'
 import { 
   BrowserRouter, 
   Routes, 

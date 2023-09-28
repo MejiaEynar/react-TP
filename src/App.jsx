@@ -1,4 +1,4 @@
-import './App.css'
+import './styles/App.css'
 import { Routes, Route, Link } from 'react-router-dom'
 import Inicio from './Inicio'
 import Publicaciones from './Publicaciones'
@@ -13,9 +13,9 @@ function App() {
   <div id='SearchBar'>
       <nav id= "links">
         <ul>
-          <li><Link className="inicio" to="/">Inicio</Link></li>
-          <li><Link className="publicaciones" to="/Publicaciones">Publicaciones</Link></li>
-          <li><Link className='New' to="/new">New</Link></li>
+          <li><a><Link className="inicio" to="/">Inicio</Link></a></li>
+          <li><a><Link className="publicaciones" to="/Publicaciones">Publicaciones</Link></a></li>
+          <li><a><Link className='New' to="/new">New</Link></a></li>
         </ul>
       </nav>
     </div>

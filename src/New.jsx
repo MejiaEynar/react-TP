@@ -33,6 +33,7 @@ function New(){
 
     return(
     <>
+    <div id='New-main'>
         <h1>Nuevo Post</h1>
         <form onSubmit={handleSubmit}>
             <input type="text" value={autor} onChange={(e) =>{setAutor(e.target.value)}} placeholder='Autor'/>
@@ -55,6 +56,7 @@ function New(){
             </pre>
             </div> */}
         </form>
+    </div>
     </>
  )
 }
