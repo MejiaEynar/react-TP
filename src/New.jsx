@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import Markdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+// import { Link } from 'react-router-dom'
+// import Markdown from 'react-markdown'
+// import remarkGfm from 'remark-gfm'
 import './styles/New.css'
 
 function New(){
@@ -11,7 +11,7 @@ function New(){
     const [ posts, setPosts ] = useState([]);
 
     useEffect(() => {
-      let postsGuardados = JSON.parse(localStorage.getItem('Posts'));
+      let postsGuardados = JSON.parse(localStorage.getItem('posts'));
       if (postsGuardados) setPosts(postsGuardados);
     }, []);
     function handleSubmit(e) {
@@ -25,8 +25,9 @@ function New(){
     //   setPosts([...posts, nuevoPost]);
       let PostActualizado = [...posts, nuevoPost];
       setPosts(PostActualizado);
-      localStorage.setItem('Posts', JSON.stringify(PostActualizado));
+      localStorage.setItem('posts', JSON.stringify(PostActualizado));
       setAutor('');
+      setTitulo('');
       setText('');
     }
 
@@ -41,9 +42,18 @@ function New(){
                 value={text}
                 placeholder='Escribir... '/>
             <input type="submit" value="Postear" />
-            <div>
-            {/* <Markdown remarkPlugins={[remarkGfm]}>{text}</Markdown> */}
-            </div>
+            {/* <div id='Posteos'>
+            <Markdown remarkPlugins={[remarkGfm]}>{text}</Markdown>
+            <pre>
+            {posts.map((autor,titulo,text, i) => {
+                <ul>
+                    <h1 key={i}> {titulo} </h1>
+                    <h3 key={i}> {autor} </h3>
+                    <p key={i}> {text} </p>
+                </ul>
+            })}
+            </pre>
+            </div> */}
         </form>
     </>
  )

@@ -9,7 +9,8 @@ function App() {
 
   return (
   <>
-    <div id='SearchBar'>
+  <header>
+  <div id='SearchBar'>
       <nav id= "links">
         <ul>
           <li><Link className="inicio" to="/">Inicio</Link></li>
@@ -19,7 +20,13 @@ function App() {
       </nav>
     </div>
     <hr/>
-  
+  </header>
+    <main>
+      {/* Aca va el cuerpo del Blog(los posteos/publicaciones) */}
+    </main>
+    <footer>
+      {/* aca va el "pie" de la pagina (opcional) */}
+    </footer>
     <Routes>                                                                          
       <Route path="/" element={<Inicio />}></Route>                                     
       <Route path="/publicaciones" element={<Publicaciones />}></Route>
