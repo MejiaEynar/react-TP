@@ -2,24 +2,29 @@ import './App.css'
 import { Routes, Route, Link } from 'react-router-dom'
 import Inicio from './Inicio'
 import Publicaciones from './Publicaciones'
+import New from './New'
 import { useState, useEffect } from 'react'
 
 function App() {
 
   return (
   <>
-       <nav id= "links">
-   <ul>
-      <li><Link className="inicio" to="/">Inicio</Link></li>
-   <li><Link className="publicaciones" to="/Publicaciones">Publicaciones</Link></li>
-    </ul>
-        </nav>
-
-      <Routes>                                                                          
+    <div id='SearchBar'>
+      <nav id= "links">
+        <ul>
+          <li><Link className="inicio" to="/">Inicio</Link></li>
+          <li><Link className="publicaciones" to="/Publicaciones">Publicaciones</Link></li>
+          <li><Link className='New' to="/new">New</Link></li>
+        </ul>
+      </nav>
+    </div>
+    <hr/>
+  
+    <Routes>                                                                          
       <Route path="/" element={<Inicio />}></Route>                                     
       <Route path="/publicaciones" element={<Publicaciones />}></Route>
-    </Routes>                                                                           
-                                                                          
+      <Route path="/New" element={<New />}></Route>
+    </Routes>
     </>
   )
 }

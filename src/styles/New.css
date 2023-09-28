@@ -1,0 +1,12 @@
+#Formulario {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+textarea{
+    width: 250px;
+    height: 250px;
+    padding: 12px 20px;
+    resize: none;
+}
