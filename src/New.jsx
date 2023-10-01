@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-// import { Link } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
+import Inicio from './Inicio.jsx'
 // import Markdown from 'react-markdown'
 // import remarkGfm from 'remark-gfm'
 import './styles/New.css'
@@ -11,28 +12,35 @@ function New(){
     const [ posts, setPosts ] = useState([]);
 
     useEffect(() => {
-      let postsGuardados = JSON.parse(localStorage.getItem('posts'));
-      if (postsGuardados) setPosts(postsGuardados);
+        const postsGuardados = JSON.parse(localStorage.getItem('posts')) || [];
+        setPosts(postsGuardados);
     }, []);
+    
     function handleSubmit(e) {
         console.log(posts)
-      e.preventDefault();
-      const nuevoPost = {
-          Autor: autor,
-          Titulo: titulo,
-          Texto: text,
-      }
+        e.preventDefault();
+        const nuevoPost = {
+            Autor: autor,
+            Titulo: titulo,
+            Texto: text,
+        }
     //   setPosts([...posts, nuevoPost]);
-      let PostActualizado = [...posts, nuevoPost];
-      setPosts(PostActualizado);
-      localStorage.setItem('posts', JSON.stringify(PostActualizado));
-      setAutor('');
-      setTitulo('');
-      setText('');
+        const PostActualizado = [...posts, nuevoPost];
+        setPosts(PostActualizado);
+        localStorage.setItem('posts', JSON.stringify(PostActualizado));
+        setAutor('');
+        setTitulo('');
+        setText('');
     }
 
     return(
     <>
+        <ul>
+            <li><Link to="/Inicio">ir a Inicio</Link></li>
+        </ul>
+        <Routes>
+        <Route path="/Inicio/*" element={<Inicio />}></Route>
+        </Routes>
     <div id='New-main'>
         <h1>Nuevo Post</h1>
         <form onSubmit={handleSubmit}>
