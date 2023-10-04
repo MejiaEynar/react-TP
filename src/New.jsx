@@ -1,72 +1,61 @@
-// import { useState, useEffect } from 'react'
-// import { Routes, Route, Link } from 'react-router-dom'
-// import Inicio from './Inicio.jsx'
-// // import Markdown from 'react-markdown'
-// // import remarkGfm from 'remark-gfm'
-// import './styles/New.css'
+import { useState, useEffect } from 'react'
+import { Routes, Route, Link } from 'react-router-dom'
+import Inicio from './Inicio.jsx'
+// import Markdown from 'react-markdown'
+// import remarkGfm from 'remark-gfm'
+import './styles/New.css'
 
-// function New(){
-//     const [ text, setText] = useState('');
-//     const [ autor, setAutor ] = useState('');
-//     const [ titulo, setTitulo ] = useState('');
-//     const [ posts, setPosts ] = useState([]);
-
-//     useEffect(() => {
-//         const postsGuardados = JSON.parse(localStorage.getItem('posts')) || [];
-//         setPosts(postsGuardados);
-//     }, []);
+function New(props){
+    const [ contenido, setContenido] = useState('');
+    const [ usuario, setUsuario ] = useState('');
+    const [ titulo, setTitulo ] = useState('');
+    const [ publicaciones, setPublicaciones ] = useState([]);
+    const { agregarPublicacion } = props;
+    function handleClick(e) {
+        e.preventDefault();
+        if (usuario && contenido) {
+          const nuevaPublicacion = {
+            id: Date.now(),
+            nombreusuario: usuario ,
+            titulo: titulo,
+            contenido: contenido,
+          };
+          agregarPublicacion([...publicaciones, nuevaPublicacion]);
+          localStorage.setItem('publicaciones', JSON.stringify([...publicaciones, nuevaPublicacion]));
+          setContenido('');
+          setTitulo('');
+          setUsuario('');
+        }
+      }
     
-//     function handleSubmit(e) {
-//         console.log(posts)
-//         e.preventDefault();
-//         const nuevoPost = {
-//             Autor: autor,
-//             Titulo: titulo,
-//             Texto: text,
-//         }
-//     //   setPosts([...posts, nuevoPost]);
-//         const PostActualizado = [...posts, nuevoPost];
-//         setPosts(PostActualizado);
-//         localStorage.setItem('posts', JSON.stringify(PostActualizado));
-//         setAutor('');
-//         setTitulo('');
-//         setText('');
-//     }
+      return (
+        <>
+          <form onSubmit={handleClick}>
+            <div id="post">
+              <input
+                type="contenido"
+                value={usuario}
+                onChange={(e) => setUsuario(e.target.value)}
+                placeholder="usuario"
+              />
+              <input
+                type="contenido"
+                value={titulo}
+                onChange={(e) => setTitulo(e.target.value)}
+                placeholder="Titulo"
+              />
+              <textarea
+                id="content"
+                value={contenido}
+                onChange={(e) => setContenido(e.target.value)}
+                placeholder="¿Qué estás pensando?"
+              ></textarea>
+              <input type="submit" value="Publicar" />
+            </div>
+          </form>
+          
+        </>
+ )
+}
 
-//     return(
-//     <>
-//         <ul>
-//             <li><Link to="/Inicio">ir a Inicio</Link></li>
-//         </ul>
-//         <Routes>
-//         <Route path="/Inicio/*" element={<Inicio />}></Route>
-//         </Routes>
-//     <div id='New-main'>
-//         <h1>Nuevo Post</h1>
-//         <form onSubmit={handleSubmit}>
-//             <input type="text" value={autor} onChange={(e) =>{setAutor(e.target.value)}} placeholder='Autor'/>
-//             <input type="text" value={titulo} onChange={(e) =>{setTitulo(e.target.value)}} placeholder='Titulo'/>
-//             <textarea 
-//                 onChange={(e) => setText(e.target.value)}
-//                 value={text}
-//                 placeholder='Escribir... '/>
-//             <input type="submit" value="Postear" />
-//             {/* <div id='Posteos'>
-//             <Markdown remarkPlugins={[remarkGfm]}>{text}</Markdown>
-//             <pre>
-//             {posts.map((autor,titulo,text, i) => {
-//                 <ul>
-//                     <h1 key={i}> {titulo} </h1>
-//                     <h3 key={i}> {autor} </h3>
-//                     <p key={i}> {text} </p>
-//                 </ul>
-//             })}
-//             </pre>
-//             </div> */}
-//         </form>
-//     </div>
-//     </>
-//  )
-// }
-
-// export default New
+export default New

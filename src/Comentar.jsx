@@ -16,14 +16,8 @@ function Comentar({ contenido, publicacionId }) {
         nombreUsuario,
         comentario,
       };
-
-      // Obtén los comentarios existentes para esta publicación
       const comentariosPublicacion = comentarios[publicacionId] || [];
-      
-      // Actualiza los comentarios para esta publicación
       const comentariosActualizados = [...comentariosPublicacion, nuevoComentario];
-
-      // Actualiza el objeto de comentarios con los comentarios para esta publicación
       const comentariosActualizadosGlobal = {
         ...comentarios,
         [publicacionId]: comentariosActualizados,
