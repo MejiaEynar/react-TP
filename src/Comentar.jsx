@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import New from './New';
+import { useParams } from 'react-router-dom'
+
 function Comentar({ contenido, publicacionId }) {
+  const {id} = useParams();
   const [nombreUsuario, setNombreUsuario] = useState('');
   const [comentario, setComentario] = useState('');
   const [comentarios, setComentarios] = useState([]);
-
   useEffect(() => {
     const comentariosGuardados = JSON.parse(localStorage.getItem(`comentarios_${publicacionId}`)) || [];
     setComentarios(comentariosGuardados);
@@ -30,8 +31,8 @@ function Comentar({ contenido, publicacionId }) {
 
   return (
     <>
-    <Comentar />
-      <div>
+      <div> 
+        <h1>{id}</h1>
         <div id="main-publicacion">
           <main>
             <section>

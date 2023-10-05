@@ -5,8 +5,8 @@ import New from './New'
 import Comentar from './Comentar'
 import { useState, useEffect } from 'react'
 
-
 function App() {
+
   const [publicaciones, setPublicaciones] = useState([]);
   
   useEffect(() => {
@@ -31,7 +31,7 @@ function App() {
       </div>
       <hr />
       <div>
-        {publicaciones && publicaciones.length > 0 ? (publicaciones.map((publicacion, index) => (
+        {publicaciones && publicaciones.length > 0 ? (publicaciones.map((publicacion) => (
           <div key={publicacion.id} className="publicacion">
             <h4>{publicacion.usuario}</h4>
             <h3>
@@ -50,7 +50,7 @@ function App() {
       </div>
       <Routes>
         <Route path="/inicio/*" element={<Inicio />}></Route>
-        <Route path="/comentario/:id" element={<Comentar />} />
+        <Route path="/post/:id" element={<Comentar/>} />
         <Route path="/new/*" element={<New agregarPublicacion={handleAgregarPublicacion} />} />
       </Routes>
     </>
