@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import New from './New';
 function Comentar({ contenido, publicacionId }) {
   const [nombreUsuario, setNombreUsuario] = useState('');
   const [comentario, setComentario] = useState('');
@@ -13,15 +13,12 @@ function Comentar({ contenido, publicacionId }) {
   function handleComentar() {
     if (nombreUsuario && comentario) {
       const nuevoComentario = {
-        nombreUsuario,
-        comentario,
+        nombreUsuario: nombreUsuario,
+        comentario: comentario,
       };
       const comentariosPublicacion = comentarios[publicacionId] || [];
       const comentariosActualizados = [...comentariosPublicacion, nuevoComentario];
-      const comentariosActualizadosGlobal = {
-        ...comentarios,
-        [publicacionId]: comentariosActualizados,
-      };
+      const comentariosActualizadosGlobal = {...comentarios, [publicacionId]: comentariosActualizados,};
 
       localStorage.setItem(`comentarios_${publicacionId}`, JSON.stringify(comentariosActualizados));
 
@@ -33,6 +30,7 @@ function Comentar({ contenido, publicacionId }) {
 
   return (
     <>
+    <Comentar />
       <div>
         <div id="main-publicacion">
           <main>
