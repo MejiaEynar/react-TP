@@ -1,5 +1,7 @@
 import { useState } from 'react';
-
+import "./styles/New.css"
+import { Routes, Route, Link } from 'react-router-dom'
+import Inicio from './Inicio';
 function New(props) {
   const [contenido, setContenido] = useState('');
   const [usuario, setUsuario] = useState('');
@@ -34,6 +36,14 @@ function New(props) {
 
   return (
     <>
+    <Routes>
+        <Route path="/inicio/*" element={<Inicio />}></Route>
+        </Routes>
+        <div id='list'>
+        <ul>
+            <li><Link className="inicio" to="/">Inicio</Link></li>
+        </ul>
+        </div>
       <h1>Nuevo Post</h1>
       <form onSubmit={handleClick}>
         <div id="post">
