@@ -2,9 +2,11 @@ import './styles/App.css'
 import { Routes, Route, Link } from 'react-router-dom'
 import Inicio from './Inicio'
 import New from './New'
+import Comentar from './Comentar'
 import {useState, useEffect} from 'react'
 
 function App() {
+
   const [publicaciones, setPublicaciones] = useState([]);
   useEffect(() => {
     const publicacionesGuardadas = JSON.parse(localStorage.getItem('publicaciones')) || [];
@@ -12,17 +14,9 @@ function App() {
     console.log(publicacionesGuardadas)
   }, []);
 
-  function agregarPublicacion() {
-    if (usuario && contenido) {
-      const nuevaPublicacion = {
-        id: Date.now(),
-        nombreusuario: usuario ,
-        titulo: titulo,
-        contenido: contenido,
-      };
-      setPublicaciones([...publicaciones, nuevaPublicacion]);
-      localStorage.setItem('publicaciones', JSON.stringify([...publicaciones, nuevaPublicacion]));
-    }
+  function agregarPublicacion(nuevaPublicacion) {
+    setPublicaciones([...publicaciones, nuevaPublicacion]);
+    localStorage.setItem('publicaciones', JSON.stringify([...publicaciones, nuevaPublicacion]));
   }
 
   return (
@@ -37,14 +31,15 @@ function App() {
     </div>
     <hr/>
     <div>
-          {publicaciones && publicaciones.length < 0 ? (publicaciones.map((publicacion, index) => (
+          {publicaciones && publicaciones.length > 0 ? (publicaciones.map((publicacion, index) => (
             <div key={publicacion.id} className="publicacion">
               <h4>{publicacion.nombreUsuario}</h4>
-              <h3>{publicacion.titulo}</h3>
+              <h3>
+              <Link to={`/comentarios/${publicacion.id}`}>
+                {publicacion.titulo}
+              </Link>
+            </h3>
               <p>{publicacion.contenido}</p>
-              <Comentar publicacion={publicacion} 
-              comentarios={comentariosPorPublicacion[publicacion.id]} 
-              setComentarios={setComentariosPorPublicacion} />
             </div>
           ))
           )
@@ -54,8 +49,9 @@ function App() {
           )}
         </div>
     <Routes>                                                                          
-      <Route path="/inicio/*" element={<Inicio />}></Route>                                     
-      <Route path="/new/*" element={<New agregarPublicacion={agregarPublicacion} />}></Route>
+      <Route path="/inicio/*" element={<Inicio />}></Route>
+      <Route path="/comentarios/:id" element={<Comentar />} />                                     
+      <Route path="/new/*" element={<New agregarPublicacion={agregarPublicacion} />} />
     </Routes>
   </>
   )
