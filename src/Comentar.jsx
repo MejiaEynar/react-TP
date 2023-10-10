@@ -7,12 +7,18 @@ function Comentar() {
   const [nombreUsuario, setNombreUsuario] = useState('');
   const [comentario, setComentario] = useState('');
   const [comentarios, setComentarios] = useState([]);
-  const [publicacion, setPublicacion] = useState([]);
-
+  const [publicacion, setPublicacion] = useState(null);
+  const [publicaciones, setPublicaciones] = useState([]);
   useEffect(() => {
-    const publicacionGuardada = JSON.parse(localStorage.getItem(`publicacion_${id}`)) || null;
-    setPublicacion(publicacionGuardada);
+    const publicacionesGuardadas = JSON.parse(localStorage.getItem('publicaciones')) || [];
+
+    const publicacionEncontrada = publicacionesGuardadas.filter((post) => post.id === parseInt(id))[0]
+
+    if (setPublicaciones) {
+      setPublicaciones(publicacionesGuardadas);
+    }
     
+    setPublicacion(publicacionEncontrada);
     const comentariosGuardados = JSON.parse(localStorage.getItem(`comentarios_${id}`)) || [];
     setComentarios(comentariosGuardados);
   }, [id]);
@@ -45,15 +51,18 @@ function Comentar() {
             </li>
           </ul>
         </div>
-        {publicacion && publicacion.length != 0 ? (
+{publicacion ? (
           <div key={publicacion.id} className="publicacion">
             <h4>{publicacion.usuario}</h4>
             <h3>{publicacion.titulo}</h3>
             <p>{publicacion.contenido}</p>
           </div>
-        ) : (
-          <p>Publicación no encontrada</p>
-        )}
+)
+:
+(
+<p>no se encontro la publicacion</p>
+)
+}
         <div id="main-publicacion">
           <main>
             <section id="comentarios">
