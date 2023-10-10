@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import "./styles/New.css"
-import { Routes, Route, Link } from 'react-router-dom'
-import Inicio from './Inicio';
-function New(props) {
+import {  Link } from 'react-router-dom'
+function New() {
   const [contenido, setContenido] = useState('');
   const [usuario, setUsuario] = useState('');
   const [titulo, setTitulo] = useState('');
@@ -36,9 +35,6 @@ function New(props) {
 
   return (
     <>
-    <Routes>
-        <Route path="/inicio/*" element={<Inicio />}></Route>
-        </Routes>
         <div id='list'>
         <ul>
             <li><Link className="inicio" to="/">Inicio</Link></li>
