@@ -16,3 +16,7 @@
   text-decoration: underline;
   color: rgb(0, 12, 182);
 }
+#publicacion {
+  padding: 50px;
+  background-color: grey;
+}
