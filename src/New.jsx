@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import "./styles/New.css"
 import {  Link } from 'react-router-dom'
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm'; 
+
 function New() {
   const [contenido, setContenido] = useState('');
   const [usuario, setUsuario] = useState('');
@@ -60,8 +63,10 @@ function New() {
             value={contenido}
             onChange={(e) => setContenido(e.target.value)}
             placeholder="¿Qué estás pensando?"
-          ></textarea>
+            
+          />
           <input type="submit" value="Publicar" />
+          <Markdown remarkPlugins={[remarkGfm]}>{contenido}</Markdown>
         </div>
       </form>
     </>
