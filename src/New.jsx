@@ -43,6 +43,7 @@ function New() {
             <li><Link className="inicio" to="/">Inicio</Link></li>
         </ul>
         </div>
+        <div className='asd'>
       <h1>Nuevo Post</h1>
       <form onSubmit={handleClick}>
         <div id="post">
@@ -69,6 +70,7 @@ function New() {
           <Markdown remarkPlugins={[remarkGfm]}>{contenido}</Markdown>
         </div>
       </form>
+      </div>
     </>
   );
 }

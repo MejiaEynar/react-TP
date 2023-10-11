@@ -8,7 +8,7 @@ ul {
 list-style-type: none;
 padding: 20px;
 background-color: black;
-font-size: 20px;
+font-size: 40px;
 
 }
 .inicio {
@@ -52,3 +52,15 @@ textarea{
     padding: 12px 20px;
     resize: none;
 }
+
+body {
+    margin: 0;
+  }
+  
+  div > ul {
+    margin: 0;
+  }
+
+  .asd {
+      background-color: orange;
+  }

@@ -27,7 +27,6 @@ function Inicio() {
           </ul>
         </nav>
       </div>
-      <hr />
       <div>
         {publicaciones && publicaciones.length > 0 ? (
           publicaciones.map((publicacion) => (
