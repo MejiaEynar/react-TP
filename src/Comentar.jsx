@@ -81,7 +81,7 @@ function Comentar() {
                 value={comentario}
               ></textarea>
               <input type="button" onClick={handleComentar} value="Comentar" className='boton_comment'/>
-              <p>Comentarios</p>
+              <p className='com_sector'>Comentarios</p>
               {comentarios.map((comentario, index) => (
                 <div className='comentarios' key={index}>
                   <p>{comentario.nombreUsuario}</p>
