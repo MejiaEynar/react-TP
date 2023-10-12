@@ -62,5 +62,7 @@ body {
   }
 
   .asd {
+      margin-left: 500px;
+      margin-right: 500px;
       background-color: orange;
   }

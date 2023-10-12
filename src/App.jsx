@@ -35,7 +35,6 @@ const {admin} = props;
           </ul>
         </nav>
       </div>
-      <hr />
       <div>
       {admin && <h3>Sos ADMIN, hace lo que se te canta el orto REY</h3>}
         {publicaciones && publicaciones.length > 0 ? (

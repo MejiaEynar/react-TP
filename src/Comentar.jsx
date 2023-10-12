@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import "./styles/Comentar.css"
 
 function Comentar() {
   const { id } = useParams();
@@ -77,10 +78,10 @@ function Comentar() {
                 placeholder="Comenta algo"
                 value={comentario}
               ></textarea>
-              <input type="button" onClick={handleComentar} value="Comentar" />
+              <input type="button" onClick={handleComentar} value="Comentar" className='boton_comment'/>
               <p>Comentarios</p>
               {comentarios.map((comentario, index) => (
-                <div key={index}>
+                <div className='comentarios' key={index}>
                   <p>{comentario.nombreUsuario}</p>
                   <p>{comentario.comentario}</p>
                 </div>

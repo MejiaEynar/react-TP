@@ -1,0 +1,12 @@
+div > ul {
+    margin-bottom: 10px
+}
+
+.comentarios {
+    background-color: orangered;
+}
+
+.boton_comment {
+    display: flex;
+    flex-direction: column;
+}
