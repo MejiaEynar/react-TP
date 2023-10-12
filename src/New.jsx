@@ -44,7 +44,7 @@ function New() {
         </ul>
         </div>
         <div className='asd'>
-      <h1>Nuevo Post</h1>
+      <h1 className='new_post'>Nuevo Post</h1>
       <form onSubmit={handleClick}>
         <div id="post">
           <input

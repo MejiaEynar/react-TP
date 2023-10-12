@@ -4,7 +4,8 @@ import New from './New';
 import Admin from './Admin';
 import Comentar from './Comentar';
 import { useState, useEffect } from 'react';
-
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm'; 
 function Inicio(props) {
   const [publicaciones, setPublicaciones] = useState([]);
 
@@ -49,7 +50,7 @@ function Inicio(props) {
                 {admin && (
                     <button className='remove' id={publicacion.id} onClick={() => borrarPublicacion(publicacion.id)}>X</button>)}
               </h3>
-              <p>{publicacion.contenido}</p>
+            <Markdown remarkPlugins={[remarkGfm]}>{publicacion.contenido}</Markdown>
             </div>
           ))
         ) : (

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import "./styles/Comentar.css"
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm'; 
 
 function Comentar() {
   const { id } = useParams();
@@ -56,7 +58,7 @@ function Comentar() {
           <div key={publicacion.id} className="publicacion">
             <h4>{publicacion.usuario}</h4>
             <h3>{publicacion.titulo}</h3>
-            <p>{publicacion.contenido}</p>
+            <Markdown remarkPlugins={[remarkGfm]}>{publicacion.contenido}</Markdown>
           </div>
 )
 :
@@ -83,7 +85,7 @@ function Comentar() {
               {comentarios.map((comentario, index) => (
                 <div className='comentarios' key={index}>
                   <p>{comentario.nombreUsuario}</p>
-                  <p>{comentario.comentario}</p>
+                  <Markdown remarkPlugins={[remarkGfm]}>{comentario.comentario}</Markdown>
                 </div>
               ))}
             </section>
