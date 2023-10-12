@@ -47,7 +47,7 @@ function Comentar() {
   return (
     <>
       <div>
-        <div>
+        <div className='Nav-comentar'>
           <ul>
             <li>
               <Link className="inicio" to="/">Inicio</Link>

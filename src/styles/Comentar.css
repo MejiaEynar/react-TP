@@ -1,5 +1,11 @@
-div > ul {
-    margin-bottom: 10px
+
+.Nav-comentar {
+    margin-bottom: 10px;
+    list-style-type: none;
+padding: 20px;
+background-color: black;
+font-size: 40px;
+
 }
 
 .comentarios {
