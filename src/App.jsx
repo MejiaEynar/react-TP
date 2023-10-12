@@ -32,12 +32,12 @@ function Inicio(props) {
         <nav id='links'>
           <ul>
             <li><Link className='inicio' to='/'>Inicio</Link></li>
+            {admin && <p className='admin'>ADMIN</p>}
             <li><Link className='New' to='/new'>New</Link></li>
           </ul>
         </nav>
       </div>
       <div>
-        {admin && <h3>Sos ADMIN, hace lo que se te canta el orto REY</h3>}
         {publicaciones && publicaciones.length > 0 ? (
           publicaciones.map((publicacion) => (
             <div key={publicacion.id} className='publicacion'>
@@ -47,7 +47,7 @@ function Inicio(props) {
                   {publicacion.titulo}
                 </Link>
                 {admin && (
-                    <button id={publicacion.id} onClick={() => borrarPublicacion(publicacion.id)}>X</button>)}
+                    <button className='remove' id={publicacion.id} onClick={() => borrarPublicacion(publicacion.id)}>X</button>)}
               </h3>
               <p>{publicacion.contenido}</p>
             </div>

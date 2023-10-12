@@ -1,0 +1,11 @@
+h1 {
+    padding: 15px 10vw 15px 10vw;
+    margin: 0;
+    background-color: red;
+}
+
+form {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import "./styles/Admin.css";
+
 function Admin (props) {
 const {setAdmin} = props;
 const Navigate = useNavigate()
