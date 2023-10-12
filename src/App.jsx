@@ -18,13 +18,14 @@ function Inicio(props) {
     localStorage.setItem('publicaciones', JSON.stringify([...publicaciones, nuevoPost]));
   };
 
-const borrarPublicaciones = (id) => {
-setPublicaciones(publicaciones.filter((contenido, index) => index != id))
-}
-const handleClick = e => {
-  borrarPublicaciones(e.target.id)
-}
-const {admin} = props;
+  const borrarPublicacion = (id) => {
+    const publicacionesActualizadas = publicaciones.filter((publicacion) => publicacion.id !== id);
+    setPublicaciones(publicacionesActualizadas);
+    localStorage.setItem('publicaciones', JSON.stringify(publicacionesActualizadas));
+  };
+
+  const { admin } = props;
+
   return (
     <>
       <div id='SearchBar'>
@@ -36,7 +37,7 @@ const {admin} = props;
         </nav>
       </div>
       <div>
-      {admin && <h3>Sos ADMIN, hace lo que se te canta el orto REY</h3>}
+        {admin && <h3>Sos ADMIN, hace lo que se te canta el orto REY</h3>}
         {publicaciones && publicaciones.length > 0 ? (
           publicaciones.map((publicacion) => (
             <div key={publicacion.id} className='publicacion'>
@@ -44,8 +45,9 @@ const {admin} = props;
               <h3>
                 <Link to={`/post/${publicacion.id}`}>
                   {publicacion.titulo}
-                  {admin && <button id={publicacion.id} onClick={handleClick}></button>}
                 </Link>
+                {admin && (
+                    <button id={publicacion.id} onClick={() => borrarPublicacion(publicacion.id)}>X</button>)}
               </h3>
               <p>{publicacion.contenido}</p>
             </div>
@@ -53,20 +55,20 @@ const {admin} = props;
         ) : (
           <h4>No hay Publicaciones</h4>
         )}
-        {admin && <h3>Sos ADMIN, hace lo que se te canta el orto REY</h3>}
       </div>
     </>
   );
 }
 
 function App() {
-  const [admin, setAdmin] = useState(false)
+  const [admin, setAdmin] = useState(false);
+
   return (
     <Routes>
-      <Route path='/' element={<Inicio admin={admin}/>} />
+      <Route path='/' element={<Inicio admin={admin} />} />
       <Route path='/post/:id' element={<Comentar />} />
       <Route path='/new' element={<New />} />
-      <Route path='/admin' element={<Admin setAdmin={setAdmin}/>} />
+      <Route path='/admin' element={<Admin setAdmin={setAdmin} />} />
     </Routes>
   );
 }
