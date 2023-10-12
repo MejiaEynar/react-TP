@@ -39,9 +39,11 @@ function New() {
   return (
     <>
         <div id='list'>
-        <ul>
-            <li><Link className="inicio" to="/">Inicio</Link></li>
-        </ul>
+          <nav>
+            <ul>
+              <li><Link className="inicio" to="/">Inicio</Link></li>
+            </ul>
+          </nav>
         </div>
         <div className='asd'>
       <h1 className='new_post'>Nuevo Post</h1>
