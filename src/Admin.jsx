@@ -16,7 +16,7 @@ const handleSubmit = e => {
 
 return (
     <>
-    <h1>¿Te atreves a ser ADMIN?</h1>
+    <h1 className='admin-h1'>¿Te atreves a ser ADMIN?</h1>
 <form onSubmit={handleSubmit}>
 <input onChange={e => setContraseña(e.target.value)}type="password" value={contraseña}/>
 <button type="submit">Entrar</button>
