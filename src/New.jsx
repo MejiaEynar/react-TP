@@ -46,9 +46,9 @@ function New() {
           </nav>
         </div>
         <div className='asd'>
-      <h1 className='new_post'>Nuevo Post</h1>
-      <form onSubmit={handleClick}>
-        <div id="post">
+      <h1>Nuevo Post</h1>
+      <form  onSubmit={handleClick}>
+        
           <input
             type="text"
             value={usuario}
@@ -70,7 +70,6 @@ function New() {
           />
           <input type="submit" value="Publicar" />
           <Markdown remarkPlugins={[remarkGfm]}>{contenido}</Markdown>
-        </div>
       </form>
       </div>
     </>

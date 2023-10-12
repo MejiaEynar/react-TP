@@ -1,36 +1,19 @@
-#New-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 nav > ul {
+display: flex;
 list-style-type: none;
 padding: 20px;
 background-color: black;
 font-size: 40px;
-
+margin: 0;
+justify-content: flex-start;
 }
+
 .inicio {
   text-decoration: none;
   color: white;
-
-}
-
-.new_post {
-    text-align: center;
-}
-
-#post {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 input[type=text] {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     border-radius: 0;
     width: 250px;
     height: 30px;
@@ -38,9 +21,6 @@ input[type=text] {
     border-color: rgba(0,0,0, 0.4);
 }
 input[type=submit] {
-    display: flex;
-    -ms-flex-align:  center;
-    align-items: center;
     width: 60px;
     height: 30px;
     margin: 10px;
@@ -50,7 +30,6 @@ textarea{
     width: 250px;
     height: 250px;
     padding: 12px 20px;
-    resize: none;
 }
 
 body {
@@ -62,7 +41,19 @@ body {
   }
 
   .asd {
-      margin-left: 500px;
-      margin-right: 500px;
+      /* margin-left: 500px;
+      margin-right: 500px; */
       background-color: orange;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      resize: none;
   }
+
+  /* .create-post {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+      margin: 0 auto;
+      gap: 10px;
+  } */
