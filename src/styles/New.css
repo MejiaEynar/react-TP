@@ -1,11 +1,13 @@
-nav > ul {
-display: flex;
-list-style-type: none;
-padding: 20px;
-background-color: black;
-font-size: 40px;
-margin: 0;
-justify-content: flex-start;
+.nav-New{
+    display: flex;
+    list-style-type: none;
+    padding: 20px;
+    background-color: black;
+    font-size: 40px;
+    margin: 0;
+    width: 100%;
+    margin-bottom: 10px;
+    justify-content: flex-start;
 }
 
 .inicio {
@@ -13,47 +15,45 @@ justify-content: flex-start;
   color: white;
 }
 
-input[type=text] {
-    border-radius: 0;
-    width: 250px;
-    height: 30px;
-    margin: 10px;
-    border-color: rgba(0,0,0, 0.4);
+.form-New form{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    background-color: orange;
+    width: 100%;
+    align-items: center;
+    border: 4px solid rgb(255, 111, 0);
+    margin-bottom: 10px;
 }
-input[type=submit] {
-    width: 60px;
-    height: 30px;
-    margin: 10px;
-    border-color: rgba(0, 0, 0, 0.4);
-}
-textarea{
+
+.form-New textarea {
+    resize: none;
     width: 250px;
     height: 250px;
     padding: 12px 20px;
 }
 
+.form-New input[type=text] {
+    width: 250px;
+    height: 30px;
+    margin: 10px;
+    margin-left: 20px;
+}
+
+.form-New input[type=submit] {
+    width: 60px;
+    height: 30px;
+    margin: 10px;
+    margin-left: 20px;
+}
+
+.markdown-style{
+    text-align: center;
+    background-color: rgb(255, 111, 0);
+    width: 100%;
+    border: 3px solid black;
+}
+
 body {
     margin: 0;
-  }
-  
-  div > ul {
-    margin: 0;
-  }
-
-  .asd {
-      /* margin-left: 500px;
-      margin-right: 500px; */
-      background-color: orange;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      resize: none;
-  }
-
-  /* .create-post {
-      display: flex;
-      flex-direction: column;
-      width: 60%;
-      margin: 0 auto;
-      gap: 10px;
-  } */
+}

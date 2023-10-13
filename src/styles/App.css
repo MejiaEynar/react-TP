@@ -1,28 +1,28 @@
-.remove {
-  margin-left: 10px;
-}
-
-.admin {
-  color: red;
-  margin-top: 0;
-}
-
-#SearchBar nav ul {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  justify-content: space-evenly;
-  padding: 15px 10vw 15px 10vw;
+.SearchBar {
   margin-bottom: 10px;
 }
+.SearchBar > nav > ul {
+  display: flex;
+  padding: 20px;
+  margin: 0;
+  background-color: black;
+  justify-content: space-evenly;
+}
 
-#SearchBar nav ul li a {
+.Inicio {
+  color: white;
+  font-size: 40px;
+  text-decoration: none;
+  justify-content: space-evenly;
+}
+
+.New {
   color: white;
   font-size: 40px;
   text-decoration: none;
 }
 
-#SearchBar nav ul li a:hover {
+.SearchBar a:hover {
   text-decoration: underline;
   color: rgb(0, 12, 182);
 }
@@ -31,14 +31,45 @@
   padding-left: 50px;
   margin-bottom: 10px;
   background-color: grey;
+  border: 4px solid black;
   font-size: 30px;
+}
+
+.publicacion a {
+  text-decoration: none;
+  color: black;
+}
+
+.publicacion button {
+  border: 2px solid black;
+  margin: 10px;
 }
 
 body {
   margin: 0;
-  background-color: purple;
+  display: flex;
+  background-color: rgb(95, 0, 95);
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer > div{
+  margin-top: auto;
+  border: 4px solid black;
+  background-color: gray;
+  text-align: center;
 }
 
 nav > ul {
   margin: 0;
+}
+
+.remove {
+  margin-left: 10px;
+}
+
+.admin {
+  color: red;
+  margin-top: 0;
+  font-size: 38px;
 }

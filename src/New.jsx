@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import "./styles/New.css"
-import {  Link } from 'react-router-dom'
+import {  Link } from 'react-router-dom';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm'; 
+import { useState } from 'react';
+import "./styles/New.css";
 
 function New() {
-  const [contenido, setContenido] = useState('');
-  const [usuario, setUsuario] = useState('');
   const [titulo, setTitulo] = useState('');
+  const [usuario, setUsuario] = useState('');
+  const [contenido, setContenido] = useState('');
   const [publicaciones, setPublicaciones] = useState([]);
 
   function agregarPublicacion(nuevaPublicacion) {
@@ -38,39 +38,43 @@ function New() {
 
   return (
     <>
-        <div id='list'>
+        <header className='nav-New'>
           <nav>
             <ul>
               <li><Link className="inicio" to="/">Inicio</Link></li>
             </ul>
           </nav>
-        </div>
-        <div className='asd'>
-      <h1>Nuevo Post</h1>
-      <form  onSubmit={handleClick}>
-        
-          <input
-            type="text"
-            value={usuario}
-            onChange={(e) => setUsuario(e.target.value)}
-            placeholder="Usuario"
-          />
-          <input
-            type="text"
-            value={titulo}
-            onChange={(e) => setTitulo(e.target.value)}
-            placeholder="Titulo"
-          />
-          <textarea
-            id="content"
-            value={contenido}
-            onChange={(e) => setContenido(e.target.value)}
-            placeholder="¿Qué estás pensando?"
-            
-          />
-          <input type="submit" value="Publicar" />
-          <Markdown remarkPlugins={[remarkGfm]}>{contenido}</Markdown>
+        </header>
+
+        <div className='form-New'>
+          <form  onSubmit={handleClick}>
+            <h1>Nuevo Post</h1>
+            <input
+              type="text"
+              value={usuario}
+              onChange={(e) => setUsuario(e.target.value)}
+              placeholder="Usuario"
+            />
+            <input
+              type="text"
+              value={titulo}
+              onChange={(e) => setTitulo(e.target.value)}
+              placeholder="Titulo"
+            />
+            <textarea
+              id="content"
+              value={contenido}
+              onChange={(e) => setContenido(e.target.value)}
+              placeholder="¿Qué estás pensando?"
+            />
+            <input 
+              type="submit" 
+              value="Publicar" 
+            />
       </form>
+      <div className='markdown-style'>
+        <Markdown remarkPlugins={[remarkGfm]}>{contenido}</Markdown>
+      </div>
       </div>
     </>
   );

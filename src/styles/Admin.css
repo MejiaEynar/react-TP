@@ -5,7 +5,7 @@
     text-align: center;
 }
 
-form {
+.form-Admin {
     margin-top: 50px;
     display: flex;
     justify-content: center;

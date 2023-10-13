@@ -1,11 +1,12 @@
-import './styles/App.css';
 import { Routes, Route, Link } from 'react-router-dom';
-import New from './New';
-import Admin from './Admin';
-import Comentar from './Comentar';
 import { useState, useEffect } from 'react';
 import Markdown from 'react-markdown';
-import remarkGfm from 'remark-gfm'; 
+import remarkGfm from 'remark-gfm';
+import Comentar from './Comentar';
+import Admin from './Admin';
+import './styles/App.css';
+import New from './New';
+
 function Inicio(props) {
   const [publicaciones, setPublicaciones] = useState([]);
 
@@ -29,34 +30,40 @@ function Inicio(props) {
 
   return (
     <>
-      <div id='SearchBar'>
-        <nav id='links'>
+      <header className='SearchBar'>
+        <nav>
           <ul>
-            <li><Link className='inicio' to='/'>Inicio</Link></li>
-            {admin && <p className='admin'>ADMIN</p>}
+            <li><Link className='Inicio' to='/'>Inicio</Link></li>
+              {admin && <p className='admin'>ADMIN</p>}
             <li><Link className='New' to='/new'>New</Link></li>
           </ul>
         </nav>
-      </div>
-      <div>
+      </header>
+
+      <main>
         {publicaciones && publicaciones.length > 0 ? (
           publicaciones.map((publicacion) => (
             <div key={publicacion.id} className='publicacion'>
-              <h4>{publicacion.usuario}</h4>
-              <h3>
+              <h1>
                 <Link to={`/post/${publicacion.id}`}>
                   {publicacion.titulo}
                 </Link>
                 {admin && (
                     <button className='remove' id={publicacion.id} onClick={() => borrarPublicacion(publicacion.id)}>X</button>)}
-              </h3>
+              </h1>
+              <h4>{publicacion.usuario}</h4>
             <Markdown remarkPlugins={[remarkGfm]}>{publicacion.contenido}</Markdown>
             </div>
           ))
         ) : (
           <h4>No hay Publicaciones</h4>
         )}
-      </div>
+      </main>
+      <footer>
+        <div>
+          <p> Sitio construido por Eduardo Orsi, Tiziano Maine y Eynar Mejia de 4° 4° COMPUTACIÓN.</p>
+        </div>
+      </footer>
     </>
   );
 }
