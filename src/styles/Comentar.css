@@ -25,6 +25,8 @@
 .form-comentarios {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .form-comentarios > input{
@@ -35,12 +37,14 @@
 }
 
 .form-comentarios > input[type=text]{
-    width: 250px;
+    width: 350px;
     height: 30px;
     margin: 10px;
-    margin-left: 25px;
 }
 
-textarea {
+.form-comentarios > textarea {
     margin: 10px;
+    resize: none;
+    width: 390px;
+    height: 290px;
 }
