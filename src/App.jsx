@@ -56,7 +56,7 @@ function Inicio(props) {
             </div>
           ))
         ) : (
-          <h4>No hay Publicaciones</h4>
+          <h4 className='h4-h4'>No hay Publicaciones</h4>
         )}
       </main>
       <footer>
