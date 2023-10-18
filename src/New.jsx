@@ -28,7 +28,6 @@ function New() {
         titulo: titulo,
         contenido: contenido,
       };
-      console.log(nuevaPublicacion)
       agregarPublicacion(nuevaPublicacion);
       setContenido('');
       setTitulo('');
