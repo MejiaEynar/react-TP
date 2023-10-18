@@ -1,9 +1,14 @@
 .Nav-comentar {
     margin-bottom: 10px;
+  }
+
+.Nav-comentar > ul {
+    display: flex;
     padding: 20px;
-    background-color: black;
+    margin: 0;
     font-size: 40px;
-}
+    background-color: black;
+  }
 
 .comentarios {
     background-color: orangered;
