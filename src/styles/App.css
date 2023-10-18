@@ -46,11 +46,7 @@
 }
 
 body {
-  margin: 0;
-  display: flex;
   background-color: rgb(95, 0, 95);
-  flex-direction: column;
-  min-height: 100vh;
 }
 
 footer > div{
@@ -59,8 +55,6 @@ footer > div{
   background-color: gray;
   text-align: center;
 }
-
-
 
 .remove {
   margin-left: 10px;
