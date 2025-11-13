@@ -1,8 +1,12 @@
-# React + Vite
+### Nombre del Proyecto: BoludApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Integrantes: Eynar Mejia,  Eduardo Orsi, Matias Rosas y Matias Leanza.
 
-Currently, two official plugins are available:
+- Descripcion del proyecto: Crear una pagina web, que comparta similitudes con Twitter, y sirva para realizar posts con opiniones y que cada post pueda recibir comentarios y likes. Ademas, la capacidad de crearte un usuario y buscar posts.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Tecnologías Utilizadas: React.
+
+- Estado Actual del Proyecto: Finalizado.
+
+### Trello:
+- https://trello.com/b/83hcRHqf/proyecto-generaciont-boludapp
